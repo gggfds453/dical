@@ -17,6 +17,10 @@ with col2:
     d = st.number_input("輸入係數 d", value=0.0, step=None)
     e = st.number_input("輸入冪次 e", value=0, step=None)
     f = st.number_input("輸入體積 f", value=0.0, step=None)
+    
+if st.button("開始計算步驟"):
+    if a > 0 and c > 0 and d > 0 and f > 0:
+
 
 
 
