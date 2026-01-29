@@ -28,12 +28,13 @@ if st.button("開始計算步驟"):
         R=a/d
         st.subheader(f"步驟 {step}")
         st.write(f"稀釋 {R:.2f} 倍")
-        st.info(f"操作：取 1 加 {R1 - 1:.2f}")
+        st.info(f"操作：取 1 加 {R - 1:.2f}")
         st.caption(f"當前濃度: {d} * 10^{int(b)}")
         
 else:
         st.warning("請檢查輸入數值是否完整且大於 0")
     
+
 
 
 
