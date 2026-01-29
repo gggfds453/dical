@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("序列稀釋計算機",'/n',"a")
+st.title("序列稀釋計算機","a")
 a = st.number_input("原始係數 a", value=1.5)
 N = st.number_input("原始冪次 N", value=9)
 b = st.number_input("目標係數 b", value=2.0)
@@ -18,4 +18,5 @@ if st.button("計算稀釋步驟"):
         st.write(f"步驟 {step}: 稀釋 {ratio:.2f} 倍 -> 當前濃度: {current:.2e}")
 
         step += 1
+
 
