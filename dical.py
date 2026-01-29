@@ -20,8 +20,21 @@ with col2:
     
 if st.button("開始計算步驟"):
     if a > 0 and c > 0 and d > 0 and f > 0:
-    else
+        if a < d :
+            a = a * 10
+            b = b-1
+
+        step=1
+        R=a/d
+        st.subheader(f"步驟 {step}")
+        st.write(f"稀釋 {R:.2f} 倍")
+        st.info(f"操作：取 1 加 {R1 - 1:.2f}")
+        st.caption(f"當前濃度: {d} * 10^{int(b)}")
+        
+else:
+        st.warning("請檢查輸入數值是否完整且大於 0")
     
+
 
 
 
