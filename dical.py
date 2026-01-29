@@ -20,6 +20,9 @@ with col2:
     
 if st.button("開始計算步驟"):
     if a > 0 and c > 0 and d > 0 and f > 0:
+    else
+    
+
 
 
 
