@@ -28,7 +28,7 @@ if a > 0 and d > 0 and f > 0:
     
     if st.button("開始計算步驟"):
         if c < cNeed:
-            st.error(f"量不夠！")
+            st.error(f"巧婦難為無米之炊")
         else:
             curr_a, curr_b = a, b
             if curr_a < d:
@@ -64,6 +64,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
 
