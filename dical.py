@@ -56,40 +56,6 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"目前體積： ${targetV:.3f}$")
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
-            st.subheader(f"結束")
-            st.info(f"{vTotalAdd:.3f}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            st.subheader(f"結束，共用了{vTotalAdd:.3f}的medium(?)")
+          
+            
