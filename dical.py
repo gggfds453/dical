@@ -6,17 +6,17 @@ st.write("不要亂輸奇怪數字搞它 自行注意因次與單位 理論上�
 
 col_a, col_b = st.columns(2)
 with col_a:
-    a = st.number_input("輸入原始係數 a", value=0.0, step=None, format="%.g")
+    a = st.number_input("a", value=0.0, step=None)
 with col_b:
-    b = st.number_input("輸入原始冪次 b", value=0.0, step=None, format="%.g")
+    b = st.number_input("b", value=0.0, step=None)
 
 col_d, col_e, col_f = st.columns(3)
 with col_d:
-    d = st.number_input("輸入目標係數 d", value=0.0, step=None, format="%.g")
+    d = st.number_input("d", value=0.0, step=None)
 with col_e:
-    e = st.number_input("輸入目標冪次 e", value=0.0, step=None, format="%.g")
+    e = st.number_input("e", value=0.0, step=None)
 with col_f:
-    f = st.number_input("輸入目標體積 f", value=0.0, step=None, format="%.g")
+    f = st.number_input("f", value=0.0, step=None)
 
 if a > 0 and d > 0 and f > 0:
     required_c = (d * f * (10**e)) / (a * (10**b))
@@ -63,5 +63,6 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
