@@ -51,9 +51,11 @@ if a > 0 and d > 0 and f > 0:
                     vAdd = targetV - vTake
                     st.subheader(f"第{step}步，稀釋10倍")
                     st.info(f"操作：取 {vTake:.3f} 加上 {vAdd:.3f}")
-                    st.caption(f"目前體積：${targetV:.3f}$  目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
+                    st.caption(f"目前體積：${targetV:.3f}$ )
+                    st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
