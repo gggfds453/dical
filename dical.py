@@ -29,19 +29,20 @@ if st.button("開始計算步驟"):
         st.subheader(f"步驟 {step}")
         st.write(f"稀釋 {R:.2f} 倍")
         st.info(f"取 1 加 {R - 1:.2f}")
-        st.caption(f"當前濃度: {d} * 10^{int(b)}")
+        st.caption(f"目前濃度: {d} * 10^{int(b)}")
         while b > e:
             step += 1
             b -= 1
             st.subheader(f"步驟 {step}")
             st.write("稀釋 10 倍")
             st.info("取 1 加上 9")
-            st.caption(f"當前濃度: {d} * 10^{int(b)}")
+            st.caption(f"目前濃度: {d} * 10^{int(b)}")
         st.header("結束")
         
 else:
         st.warning("數字怪怪的")
     
+
 
 
 
