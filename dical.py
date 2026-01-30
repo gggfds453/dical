@@ -49,4 +49,4 @@ if a > 0 and d > 0 and f > 0:
                 st.caption(f"當前濃度: {d} * 10^{int(curr_b)}")
             
             st.success("計算完成")
-            st.balloons()
+         
