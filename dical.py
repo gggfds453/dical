@@ -20,9 +20,9 @@ with col_f:
     f = st.number_input("f", value=0.0, step=None)
 
 if a > 0 and d > 0 and f > 0:
-    required_c = (d * f * (10**e)) / (a * (10**b))
+    cNeed = (10**(e-b)) * d * f / a 
     st.divider()
-    st.warning(f"根據目標，你最少需要準備 {required_c:.4f} 的原始液體 c")
+    st.warning(f"根據目標，你最少需要準備 {cNeed:.4f} 的原始液體 c")
     
     c = st.number_input("請確認並輸入你擁有的原始體積 c", value=0.0, step=None, format="%.g")
     
@@ -64,6 +64,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
 
