@@ -22,12 +22,12 @@ with col_f:
 if a > 0 and d > 0 and f > 0:
     cNeed = (10**(e-b)) * d * f / a 
     st.divider()
-    st.warning(f"根據目標，你最少需要準備 {cNeed:.10f} 的原始液體 c")
+    st.warning(f"原液體機最少要{cNeed:.10f} ")
     
-    c = st.number_input("請確認並輸入你擁有的原始體積 c", value=0.0, step=None, format="%.g")
+    c = st.number_input("你打算用多少", value=0.0, step=None, format="%.g")
     
     if st.button("開始計算步驟"):
-        if c < required_c:
+        if c < cNeed:
             st.error(f"量不夠！")
         else:
             curr_a, curr_b = a, b
@@ -64,6 +64,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
 
