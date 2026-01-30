@@ -22,7 +22,7 @@ with col_f:
 if a > 0 and d > 0 and f > 0:
     cNeed = (10**(e-b)) * d * f / a 
     st.divider()
-    st.warning(f"原液體機最少要{cNeed:.10f} ")
+    st.warning(f"原液體積最少要{cNeed:.10f} ")
     
     c = st.number_input("你打算用多少", value=0.0, step=None, format="%.g")
     
@@ -64,6 +64,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
 
