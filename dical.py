@@ -54,7 +54,8 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"目前體積： ${targetV:.3f}$")
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
-            st.write(f"結束")
+            st.subheader(f"結束")
+
 
 
 
