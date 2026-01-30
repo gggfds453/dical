@@ -30,40 +30,32 @@ if a > 0 and d > 0 and f > 0:
         if c < cNeed:
             st.error(f"巧婦難為無米之炊")
         else:
-            curr_a, curr_b = a, b
-            if curr_a < d:
-                curr_a = curr_a * 10
-                curr_b = curr_b - 1
-            
-            # 第一步：調整係數
+            aNow, bNow = a, b
+            if aNow < d:
+                aNow = aNow * 10
+                bNow = bNow - 1            
             step = 1
-            r1 = curr_a / d
-            v_add1 = c * (-1 + r1)
-            st.subheader(f"步驟 {step} (調整係數)")
-            st.write(f"稀釋 {r1:.2f} 倍")
-            st.info(f"操作：取 {c:.2f} 加上 {v_add1:.2f}")
-            st.caption(f"當前濃度: {d} * 10^{int(curr_b)}")
+            r1 = aNow / d
+            v_add1 = c * ( r1 - 1 )
+            st.subheader(f"第1步,調整係數")
+            st.write(f"稀釋 {r1:.3f} 倍")
+            st.info(f"取 {c:.3f} 加 {v_add1:.3f}")
+            st.caption(f"目前濃度: {d} * 10^{int(bNow)}")
             
-            # 剩餘平滑稀釋邏輯
-            total_steps = int(curr_b - e)
+            totalSteps = int(curr_b - e)
             if total_steps > 0:
-                for i in range(1, total_steps + 1):
+                for i in range(1, totalSteps + 1):
                     step += 1
-                    # 公式：f/c 的 (i/total_steps) 次方 
-                    # 這裡的目的是計算每一階段的「目標總體積」
-                    target_v = c * ((f/c) ** (i / total_steps))
-                    
-                    # 每一階段固定稀釋 10 倍 (因為冪次每次降 1)
-                    # 為了達成 target_v，我們計算需要取多少前一階的液體
-                    v_take = target_v / 10
+                    targetV= r1 * c * ((f/c) ** (i / total_steps))
+                    v_take = targetV / 10
                     v_add = target_v - v_take
-                    
-                    st.subheader(f"步驟 {step}")
-                    st.write("稀釋 10.00 倍")
-                    st.info(f"操作：取 {v_take:.2f} 加上 {v_add:.2f}")
-                    st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
+                    st.subheader(f"第{step}步")
+                    st.write("稀釋10倍")
+                    st.info(f"操作：取 {v_take:.3f} 加上 {v_add:.3f}")
+                    st.caption(f"當前體積：{target_v:.3f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
 
