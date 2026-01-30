@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("dilCal")
-st.write(r"請輸入原始濃度 $a \times 10^b$ 與目標需求 $d \times 10^e$ 體積 $f$")
+st.write(r"輸入原始濃度 $a \times 10^b$ 與目標需求 $d \times 10^e$ 體積 $f$")
 
 col_a, col_b = st.columns(2)
 with col_a:
@@ -26,27 +26,40 @@ if a > 0 and d > 0 and f > 0:
     
     if st.button("開始計算步驟"):
         if c < required_c:
-            st.error(f"量不夠！輸入體積 {c} 低於門檻 {required_c:.4f}")
+            st.error(f"量不夠！")
         else:
             curr_a, curr_b = a, b
             if curr_a < d:
                 curr_a = curr_a * 10
                 curr_b = curr_b - 1
-                
+            
+            # 第一步：調整係數
             step = 1
-            R1 = curr_a / d
-            st.subheader(f"步驟 {step}")
-            st.write(f"稀釋 {R1:.2f} 倍")
-            st.info(f"操作：取 1 加上 {R1 - 1:.2f}")
+            r1 = curr_a / d
+            v_add1 = c * (-1 + r1)
+            st.subheader(f"步驟 {step} (調整係數)")
+            st.write(f"稀釋 {r1:.2f} 倍")
+            st.info(f"操作：取 {c:.2f} 加上 {v_add1:.2f}")
             st.caption(f"當前濃度: {d} * 10^{int(curr_b)}")
             
-            while curr_b > e:
-                step += 1
-                curr_b -= 1
-                st.subheader(f"步驟 {step}")
-                st.write("稀釋 10.00 倍")
-                st.info("操作：取 1 加上 9.00")
-                st.caption(f"當前濃度: {d} * 10^{int(curr_b)}")
+            # 剩餘平滑稀釋邏輯
+            total_steps = int(curr_b - e)
+            if total_steps > 0:
+                for i in range(1, total_steps + 1):
+                    step += 1
+                    # 公式：f/c 的 (i/total_steps) 次方 
+                    # 這裡的目的是計算每一階段的「目標總體積」
+                    target_v = c * ((f/c) ** (i / total_steps))
+                    
+                    # 每一階段固定稀釋 10 倍 (因為冪次每次降 1)
+                    # 為了達成 target_v，我們計算需要取多少前一階的液體
+                    v_take = target_v / 10
+                    v_add = target_v - v_take
+                    
+                    st.subheader(f"步驟 {step}")
+                    st.write("稀釋 10.00 倍")
+                    st.info(f"操作：取 {v_take:.2f} 加上 {v_add:.2f}")
+                    st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
-            st.success("計算完成")
-         
+            st.success(f"計算完成，最後一步體積剛好為 {f}")
+            st.balloons()
