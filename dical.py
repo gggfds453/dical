@@ -22,13 +22,13 @@ with col_f:
 if a > 0 and d > 0 and f > 0:
     cNeed = (10**(e-b)) * d * f / a 
     st.divider()
-    st.warning(f"原液體積最少要{cNeed:.10f} ")
+    st.info(f"原液體積最少要{cNeed:.10f} ")
     
     c = st.number_input("你打算用多少", value=0.0, step=None, format="%.g")
     
     if st.button("開始計算步驟"):
         if c < cNeed:
-            st.error(f"巧婦難為無米之炊")
+            st.info(f"巧婦難為無米之炊") 
         else:
             aNow, bNow = a, b
             if aNow < d:
@@ -50,11 +50,12 @@ if a > 0 and d > 0 and f > 0:
                     vTake = targetV / 10
                     vAdd = targetV - vTake
                     st.subheader(f"第{step}步，稀釋10倍")
-                    st.info(f"操作：取 {vTake:.3f} 加上 {vAdd:.3f}")
+                    st.info(f"取 {vTake:.3f} 加上 {vAdd:.3f}")
                     st.caption(f"目前體積： ${targetV:.3f}$")
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
