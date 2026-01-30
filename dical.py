@@ -39,9 +39,10 @@ if st.button("開始計算步驟"):
             st.caption(f"目前濃度: {d} * 10^{int(b)}")
         st.header("結束")
         
-else:
+    else:
         st.warning("數字怪怪的")
     
+
 
 
 
