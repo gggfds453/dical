@@ -24,7 +24,7 @@ if a > 0 and d > 0 and f > 0:
     st.divider()
     st.info(f"原液體積最少要{cNeed:.10f} ")
     
-    c = st.number_input("你打算用多少", value=0.0, step=None, format="%.g")
+    c = st.number_input("你打算用多少原液", value=0.0, step=None, format="%.g")
     
     if st.button("開算"):
         if c < cNeed:
@@ -55,6 +55,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
