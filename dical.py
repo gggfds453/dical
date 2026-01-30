@@ -42,7 +42,7 @@ if a > 0 and d > 0 and f > 0:
             st.info(f"取 {c:.3f} 加 {v_add1:.3f}")
             st.caption(f"目前濃度: {d} * 10^{int(bNow)}")
             
-            totalSteps = int(curr_b - e)
+            totalSteps = int(bNow - e)
             if total_steps > 0:
                 for i in range(1, totalSteps + 1):
                     step += 1
@@ -54,7 +54,8 @@ if a > 0 and d > 0 and f > 0:
                     st.info(f"操作：取 {v_take:.3f} 加上 {v_add:.3f}")
                     st.caption(f"當前體積：{target_v:.3f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
-            st.success(f"計算完成，最後一步體積剛好為 {f}")
+            st.success(f"結束 {f}")
+
 
 
 
