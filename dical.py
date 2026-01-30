@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("dilCal")
+st.title("極度平滑稀釋計算機")
 st.write(r"輸入原濃度 $a \times 10^b$ &目標濃度 $d \times 10^e$ 體積 $f$")
 st.write("請嚴謹使用科學記號 不要亂輸奇怪數字搞它 ")
 st.write("自行注意因次與單位 理論上來說濃度中的體積單位和你要操作的液體體積單位可以不一樣")
@@ -55,6 +55,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
