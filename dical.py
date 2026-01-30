@@ -41,6 +41,7 @@ if a > 0 and d > 0 and f > 0:
             st.write(f"稀釋 {r1:.3f} 倍")
             st.info(f"取 {c:.3f} 加 {v_add1:.3f}")
             st.caption(f"目前濃度: {d} * 10^{int(bNow)}")
+            st.caption(f"目前濃度: ${d} \\times 10^{{{int(bNow)}}}$")
             
             totalSteps = int(bNow - e)
             if totalSteps > 0:
@@ -52,9 +53,10 @@ if a > 0 and d > 0 and f > 0:
                     st.subheader(f"第{step}步")
                     st.write("稀釋10倍")
                     st.info(f"操作：取 {vTake:.3f} 加上 {vAdd:.3f}")
-                    st.caption(f"當前體積：{targetV:.3f} | 當前濃度: ${d} \\times 10^{{{int(bNow - i)}}}$")
+                    st.caption(f"目前體積：{targetV:.3f}  目前濃度: ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
