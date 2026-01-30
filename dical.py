@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("dilCal")
-st.write("輸入原始濃度 $a \\times 10^b$ 體積 $c$，和目標濃度 $d \\times 10^e$ 體積 $f$")
+st.write("輸入原始濃度 $a \\times 10^b$ 體積 $c$，&目標濃度 $d \\times 10^e$ 體積 $f$")
 st.write("自行注意因次單位一致 然後不要輸一些奇怪數字搞它")
 
 col1, col2 = st.columns(2)
@@ -41,6 +41,7 @@ if st.button("開始計算步驟"):
 else:
         st.warning("請檢查輸入數值是否完整且大於 0")
     
+
 
 
 
