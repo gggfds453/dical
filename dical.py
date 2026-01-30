@@ -53,8 +53,10 @@ if a > 0 and d > 0 and f > 0:
                     st.write("稀釋10倍")
                     st.info(f"操作：取 {vTake:.3f} 加上 {vAdd:.3f}")
                     st.caption(f"當前體積：{targetV:.3f} | 當前濃度: {d} * 10^{int(bNow - i)}")
+                    st.caption(f"當前體積：{targetV:.3f} | 當前濃度: ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
