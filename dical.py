@@ -2,7 +2,8 @@ import streamlit as st
 
 st.title("dilCal")
 st.write(r"輸入原濃度 $a \times 10^b$ &目標濃度 $d \times 10^e$ 體積 $f$")
-st.write("不要亂輸奇怪數字搞它 自行注意因次與單位 理論上來說濃度中的體積單位和你要操作的液體體積單位可以不一樣")
+st.write("請嚴謹使用科學記號 不要亂輸奇怪數字搞它 ")
+st.write("自行注意因次與單位 理論上來說濃度中的體積單位和你要操作的液體體積單位可以不一樣")
 
 col_a, col_b = st.columns(2)
 with col_a:
@@ -63,6 +64,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"當前體積：{target_v:.2f} | 當前濃度: {d} * 10^{int(curr_b - i)}")
             
             st.success(f"計算完成，最後一步體積剛好為 {f}")
+
 
 
 
