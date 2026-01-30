@@ -26,7 +26,7 @@ if a > 0 and d > 0 and f > 0:
     
     c = st.number_input("你打算用多少", value=0.0, step=None, format="%.g")
     
-    if st.button("開始計算步驟"):
+    if st.button("開算"):
         if c < cNeed:
             st.info(f"巧婦難為無米之炊") 
         else:
@@ -55,6 +55,7 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.write(f"結束")
+
 
 
 
