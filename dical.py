@@ -57,5 +57,40 @@ if a > 0 and d > 0 and f > 0:
                     st.caption(f"目前濃度： ${d} \\times 10^{{{int(bNow - i)}}}$")
             
             st.subheader(f"結束，共用了{vTotalAdd:.3f}的medium(?)")
+            
+            st.divider()
+            st.subheader("🧪 稀釋操作流程圖")
+            
+          
+            dot = """
+            digraph G {
+                rankdir=LR;
+                node [shape=box, style=filled, color="#E1F5FE", fontname="Arial", fontsize=10];
+                edge [fontname="Arial", fontsize=9, color="#546E7A"];
+            """
+            
+        
+            dot += f'"{0}" [label="原始液\\n{a} * 10^{int(b)}", color="#CFD8DC"];\n'
+            
+           
+            v_after_step1 = c * r1
+            dot += f'"{0}" -> "{1}" [label=" 取 {c:.3f}\\n 加 {vAdd:.3f}"];\n'
+            dot += f'"{1}" [label="第 1 步\\n{d} * 10^{int(bNow)}"];\n'
+            
+           
+            if totalSteps > 0:
+                for i in range(1, totalSteps + 1):
+                    
+                    targetV_draw = c * r1 * ((f / (c * r1)) ** (i / totalSteps))
+                    vTake_draw = targetV_draw / 10
+                    vAdd_draw = targetV_draw - vTake_draw
+                    
+                   
+                    dot += f'"{i}" -> "{i+1}" [label=" 取 {vTake_draw:.3f}\\n 加 {vAdd_draw:.3f}"];\n'
+                    dot += f'"{i+1}" [label="第 {i+1} 步\\n{d} * 10^{int(bNow - i)}"];\n'
+            
+            dot += "}"
+            st.graphviz_chart(dot)
           
             
+
