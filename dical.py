@@ -37,11 +37,12 @@ if st.button("開始計算步驟"):
             st.write("稀釋 10 倍")
             st.info("取 1 加上 9")
             st.caption(f"當前濃度: {d} * 10^{int(b)}")
-        st.write("結束")
+        st.header("結束")
         
 else:
         st.warning("數字怪怪的")
     
+
 
 
 
